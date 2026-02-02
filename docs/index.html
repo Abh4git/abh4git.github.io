@@ -1,0 +1,743 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IndusKLabs - Strategic & Tactical Intelligence for Technology Leaders</title>
+    <meta name="description" content="Expert consulting in strategic intelligence and tactical intelligence. Technology trends radar and insights for SMEs worldwide.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@300;400;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #0a4a7d;
+            --secondary: #e67e22;
+            --accent: #2c8cb8;
+            --dark: #1a1a2e;
+            --light: #f8f9fa;
+            --gradient: linear-gradient(135deg, #0a4a7d 0%, #2c8cb8 100%);
+            --text-primary: #2c3e50;
+            --text-secondary: #5a6c7d;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Archivo', sans-serif;
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Header & Navigation */
+        .header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.05);
+            z-index: 1000;
+            animation: slideDown 0.6s ease;
+        }
+
+        @keyframes slideDown {
+            from {
+                transform: translateY(-100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        nav {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 1.2rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .logo {
+            height: 50px;
+            width: auto;
+        }
+
+        .logo-text {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            letter-spacing: -0.5px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-primary);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            position: relative;
+            transition: color 0.3s;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--secondary);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--secondary);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            margin-top: 80px;
+            min-height: 90vh;
+            background: var(--gradient);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                repeating-linear-gradient(
+                    90deg,
+                    transparent,
+                    transparent 50px,
+                    rgba(255, 255, 255, 0.03) 50px,
+                    rgba(255, 255, 255, 0.03) 51px
+                ),
+                repeating-linear-gradient(
+                    0deg,
+                    transparent,
+                    transparent 50px,
+                    rgba(255, 255, 255, 0.03) 50px,
+                    rgba(255, 255, 255, 0.03) 51px
+                );
+            animation: gridMove 20s linear infinite;
+        }
+
+        @keyframes gridMove {
+            0% {
+                transform: translate(0, 0);
+            }
+            100% {
+                transform: translate(50px, 50px);
+            }
+        }
+
+        .hero-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-title {
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            font-weight: 700;
+            color: white;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            animation: fadeInUp 0.8s ease 0.2s backwards;
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1.2rem, 2.5vw, 1.8rem);
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 1rem;
+            font-weight: 300;
+            animation: fadeInUp 0.8s ease 0.4s backwards;
+        }
+
+        .hero-tagline {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: clamp(0.9rem, 1.5vw, 1.1rem);
+            color: var(--secondary);
+            margin-bottom: 3rem;
+            animation: fadeInUp 0.8s ease 0.6s backwards;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background: var(--secondary);
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            animation: fadeInUp 0.8s ease 0.8s backwards;
+            box-shadow: 0 4px 20px rgba(230, 126, 34, 0.3);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 30px rgba(230, 126, 34, 0.4);
+        }
+
+        /* Expertise Section */
+        .expertise {
+            padding: 6rem 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 1rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 60%;
+            height: 4px;
+            background: var(--secondary);
+        }
+
+        .section-subtitle {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            margin-bottom: 4rem;
+            margin-top: 2rem;
+        }
+
+        .expertise-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+
+        .expertise-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            border-left: 4px solid var(--accent);
+        }
+
+        .expertise-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+        }
+
+        .expertise-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            display: block;
+        }
+
+        .expertise-card h3 {
+            font-size: 1.5rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .expertise-card p {
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        /* Services Section */
+        .services {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 6rem 2rem;
+        }
+
+        .services-content {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .services-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .service-item {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.06);
+            transition: all 0.3s ease;
+        }
+
+        .service-item:hover {
+            box-shadow: 0 4px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .service-item h3 {
+            color: var(--primary);
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .service-item ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .service-item li {
+            padding: 0.5rem 0;
+            color: var(--text-secondary);
+            position: relative;
+            padding-left: 1.5rem;
+        }
+
+        .service-item li::before {
+            content: '▹';
+            position: absolute;
+            left: 0;
+            color: var(--secondary);
+            font-weight: bold;
+        }
+
+        /* About Section */
+        .about {
+            padding: 6rem 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: start;
+            margin-top: 3rem;
+        }
+
+        .about-text h3 {
+            color: var(--primary);
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+        }
+
+        .about-text p {
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+        }
+
+        .stat-card {
+            background: var(--gradient);
+            padding: 2rem;
+            border-radius: 8px;
+            text-align: center;
+            color: white;
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 700;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: var(--dark);
+            padding: 6rem 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(44, 140, 184, 0.1) 0%, transparent 70%);
+            animation: rotate 20s linear infinite;
+        }
+
+        @keyframes rotate {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        .cta-content {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .cta-section h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            color: white;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+        }
+
+        .cta-section p {
+            font-size: 1.3rem;
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 2.5rem;
+        }
+
+        /* Footer */
+        footer {
+            background: #0d1117;
+            color: rgba(255, 255, 255, 0.7);
+            padding: 3rem 2rem 2rem;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: var(--secondary);
+        }
+
+        .copyright {
+            font-size: 0.9rem;
+            opacity: 0.6;
+            margin-top: 2rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+
+            .stats {
+                grid-template-columns: 1fr;
+            }
+
+            .hero {
+                min-height: 70vh;
+            }
+        }
+
+        /* Scroll reveal animation */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav>
+            <div class="logo-container">
+                <img src="logo.jpeg" alt="IndusKLabs Logo" class="logo">
+                <span class="logo-text">IndusKLabs</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#expertise">Expertise</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">Strategic & Tactical Intelligence<br>for Technology Leaders</h1>
+            <p class="hero-subtitle">Navigate the Technology Landscape with Confidence</p>
+            <p class="hero-tagline">// 25+ Years of Innovation Leadership • World-Class Product Development • Cybersecurity Excellence</p>
+            <a href="#contact" class="cta-button">Get Started</a>
+        </div>
+    </section>
+
+    <!-- Expertise Section -->
+    <section id="expertise" class="expertise">
+        <h2 class="section-title">Our Expertise</h2>
+        <p class="section-subtitle">Empowering SMEs worldwide with technology trends radar and actionable insights</p>
+        
+        <div class="expertise-grid">
+            <div class="expertise-card reveal">
+                <span class="expertise-icon">🎯</span>
+                <h3>Strategic Intelligence</h3>
+                <p>Technology trends analysis and strategic roadmapping to help your organization stay ahead of the curve. We provide comprehensive intelligence that transforms data into actionable insights.</p>
+            </div>
+
+            <div class="expertise-card reveal">
+                <span class="expertise-icon">⚡</span>
+                <h3>Tactical Intelligence</h3>
+                <p>Hands-on guidance for implementing cutting-edge technologies. From architecture design to execution, we ensure your team has the tactical knowledge to succeed.</p>
+            </div>
+
+            <div class="expertise-card reveal">
+                <span class="expertise-icon">🏗️</span>
+                <h3>Architecture & Design</h3>
+                <p>World-class product architecture based on proven design principles. We build systems that scale, perform, and stand the test of time.</p>
+            </div>
+
+            <div class="expertise-card reveal">
+                <span class="expertise-icon">🔐</span>
+                <h3>Digital Systems & Cybersecurity</h3>
+                <p>Comprehensive security strategies and digital transformation guidance. Protect your assets while innovating confidently in the digital landscape.</p>
+            </div>
+
+            <div class="expertise-card reveal">
+                <span class="expertise-icon">💡</span>
+                <h3>Innovation Leadership</h3>
+                <p>Proven methodologies from leading world-class organizations. We help you build a culture of innovation and foster breakthrough thinking.</p>
+            </div>
+
+            <div class="expertise-card reveal">
+                <span class="expertise-icon">📊</span>
+                <h3>Technology Trends Radar</h3>
+                <p>Stay informed with our curated technology trends radar. Identify opportunities and threats before they impact your business.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="services-content">
+            <h2 class="section-title">What We Offer</h2>
+            <p class="section-subtitle">Comprehensive consulting services tailored for small and medium enterprises</p>
+
+            <div class="services-list">
+                <div class="service-item reveal">
+                    <h3>Strategic Consulting</h3>
+                    <ul>
+                        <li>Technology roadmap development</li>
+                        <li>Digital transformation strategy</li>
+                        <li>Innovation framework design</li>
+                        <li>Competitive intelligence analysis</li>
+                    </ul>
+                </div>
+
+                <div class="service-item reveal">
+                    <h3>Product Development</h3>
+                    <ul>
+                        <li>Architecture design & review</li>
+                        <li>System design best practices</li>
+                        <li>Scalability & performance optimization</li>
+                        <li>Technical debt assessment</li>
+                    </ul>
+                </div>
+
+                <div class="service-item reveal">
+                    <h3>Team Enablement</h3>
+                    <ul>
+                        <li>Leadership coaching & mentoring</li>
+                        <li>Technical skills development</li>
+                        <li>Innovation workshops</li>
+                        <li>Career advancement guidance</li>
+                    </ul>
+                </div>
+
+                <div class="service-item reveal">
+                    <h3>Security & Compliance</h3>
+                    <ul>
+                        <li>Cybersecurity strategy</li>
+                        <li>Risk assessment & mitigation</li>
+                        <li>Security architecture review</li>
+                        <li>Compliance framework implementation</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <h2 class="section-title">Why Choose IndusKLabs</h2>
+        <p class="section-subtitle">Experience, expertise, and a proven track record of success</p>
+
+        <div class="about-content">
+            <div class="about-text reveal">
+                <h3>Unparalleled Experience</h3>
+                <p>With over 25 years of expertise in leadership roles at world-class organizations, we bring deep knowledge and practical experience to every engagement. Our track record speaks for itself: designing and building world-class products based on sound architecture and design principles.</p>
+                
+                <p>We understand the challenges that small and medium enterprises face in today's rapidly evolving technology landscape. Our mission is to help you and your team realize your full potential, assisted by intelligent insights that enable you to ride the technology wave and build great careers.</p>
+
+                <p>Our expertise spans Digital Systems, Cybersecurity, Innovation Leadership, and Strategic Intelligence. We don't just provide advice—we work alongside you to implement solutions that drive real results.</p>
+            </div>
+
+            <div class="stats">
+                <div class="stat-card reveal">
+                    <span class="stat-number">25+</span>
+                    <span class="stat-label">Years Experience</span>
+                </div>
+                <div class="stat-card reveal">
+                    <span class="stat-number">100+</span>
+                    <span class="stat-label">Projects Delivered</span>
+                </div>
+                <div class="stat-card reveal">
+                    <span class="stat-number">50+</span>
+                    <span class="stat-label">Organizations Served</span>
+                </div>
+                <div class="stat-card reveal">
+                    <span class="stat-number">∞</span>
+                    <span class="stat-label">Innovation Potential</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section id="contact" class="cta-section">
+        <div class="cta-content">
+            <h2>Ready to Transform Your Technology Strategy?</h2>
+            <p>Let's discuss how IndusKLabs can help your organization thrive in the digital age</p>
+            <a href="https://vijnanadisha.com/wp/profile-summary/" target="_blank" class="cta-button">View Full Profile</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="https://vijnanadisha.com/wp/profile-summary/" target="_blank">Profile</a>
+                <a href="#expertise">Expertise</a>
+                <a href="#services">Services</a>
+                <a href="#about">About</a>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2024 IndusKLabs. All rights reserved. | Strategic & Tactical Intelligence for Technology Leaders</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Reveal animation on scroll
+        function reveal() {
+            const reveals = document.querySelectorAll('.reveal');
+            
+            reveals.forEach(element => {
+                const windowHeight = window.innerHeight;
+                const elementTop = element.getBoundingClientRect().top;
+                const elementVisible = 150;
+                
+                if (elementTop < windowHeight - elementVisible) {
+                    element.classList.add('active');
+                }
+            });
+        }
+
+        window.addEventListener('scroll', reveal);
+        reveal(); // Check on page load
+    </script>
+</body>
+</html>
