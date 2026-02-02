@@ -1,1 +1,4 @@
-indusklabs.com
+Type: CNAME
+Host: www
+Value: abh4git.github.io
+TTL: Automatic or 3600
