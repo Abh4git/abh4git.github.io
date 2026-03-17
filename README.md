@@ -1,2 +1,2 @@
 # abh4git.github.io
-IndusKLabs Github pages
+Vijnanadisha Labs Github pages
